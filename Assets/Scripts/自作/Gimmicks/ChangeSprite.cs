@@ -11,6 +11,11 @@ public class ChangeSprite : MonoBehaviour
     public Sprite ChangeGroundSprite;
     GameObject[] CeilingOrder;
     GameObject[] GroundOrder;
+    public GameObject HighWall1;
+    public GameObject HighWall2; 
+    public GameObject LowWall1;
+    public GameObject LowWall2;
+
 
     //public Sprite HoldSprite;
     //public Sprite SlashSprite;
@@ -21,6 +26,12 @@ public class ChangeSprite : MonoBehaviour
 
         CeilingOrder = levelManager.CeilingOrder;
         GroundOrder = levelManager.GroundOrder;
+
+        HighWall1.GetComponent<SpriteRenderer>().sprite = ChangeCeilingSprite;
+        HighWall2.GetComponent<SpriteRenderer>().sprite = ChangeCeilingSprite;
+        LowWall1.GetComponent<SpriteRenderer>().sprite = ChangeGroundSprite;
+        LowWall2.GetComponent<SpriteRenderer>().sprite = ChangeGroundSprite;
+
 
         for (int i = 0; i < CeilingOrder.Length; i++)
         {
