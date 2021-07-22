@@ -6,13 +6,13 @@ public class RandomGimmick : MonoBehaviour
 {
     
     private int RandomLevel;
-    LevelManager levelManager;
+    //LevelManager LevelManager;
 
     // Start is called before the first frame update
     void OnEnable()
     {
-        RandomLevel = Random.Range(3, levelManager.LevelObjects.Length);
-        levelManager.LevelObjects[RandomLevel].SetActive(true);
+        RandomLevel = Random.Range(3, LevelManager.LevelObjects.Length);
+        LevelManager.LevelObjects[RandomLevel].SetActive(true);
     }
 
     // Update is called once per frame
@@ -23,6 +23,6 @@ public class RandomGimmick : MonoBehaviour
 
     void OnDisable()
     {
-        levelManager.LevelObjects[RandomLevel].SetActive(false);
+        LevelManager.LevelObjects[RandomLevel].SetActive(false);
     }
 }

@@ -7,7 +7,7 @@ public class ReverseCharactorMove : MonoBehaviour
     UnityChan2DController unityChan2DController;
 
     // Start is called before the first frame update
-    void OnStart()
+    void OnEnable()
     {
         unityChan2DController = GameObject.Find("UnityChan2D").GetComponent<UnityChan2DController>();
         unityChan2DController.maxSpeed = unityChan2DController.maxSpeed * (-1);
@@ -21,8 +21,7 @@ public class ReverseCharactorMove : MonoBehaviour
 
     void OnDisable()
     {
-        unityChan2DController.maxSpeed = unityChan2DController.maxSpeed * (-1);
-
+        
     }
 
 }

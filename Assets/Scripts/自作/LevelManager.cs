@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour {
 	//public static GameObject[] LevelObjects; //LevelObject	
     public GameObject[] CeilingOrder;
 	public GameObject[] GroundOrder;
-	public GameObject[] LevelObjects; //LevelObject
+	public static GameObject[] LevelObjects; //LevelObject
 	public GameObject LevelParent;
 
 
