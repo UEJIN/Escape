@@ -20,6 +20,11 @@ public class TimeLimit_SwitchScene : MonoBehaviour {
 	{ // ずっと行う（一定時間ごとに）
 
 		count = count + 1; // カウンターに1を足して
+
+
+	}
+	void Update()
+    {
 		if (count >= TimeLimit)
 		{ // もし、maxCountになったら
 			SceneManager.LoadScene(sceneName); //シーン移動

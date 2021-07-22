@@ -11,11 +11,16 @@ public class OnButtonDown_SwitchScene : MonoBehaviour {
 
 	void Update() 
 	{ // タッチしたら
-	  // シーンを切り換える
-		
-		if (SceneMoveButton.IsDown() == true)
-		{
+      // シーンを切り換える
+
+        if (SceneMoveButton.IsDown() == true)
+        {
+
             SceneManager.LoadScene(sceneName);
         }
     }
+	void FixedUpdate()
+    {
+
+	}
 }

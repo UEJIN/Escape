@@ -24,7 +24,7 @@ public class OnCollision_Show_Pless : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D collision)	{ // 接地
 
         //Debug.Log(collision.gameObject.tag);
-        Debug.Log("name:"+collision.gameObject.name+"tag:"+collision.gameObject.tag);
+        //Debug.Log("name:"+collision.gameObject.name+"tag:"+collision.gameObject.tag);
 
 		if (collision.gameObject.CompareTag(groundTag)) {
 			groundFlag = true;
