@@ -6,7 +6,7 @@ using UnityEngine;
 public class StageCounter : MonoBehaviour
 {
 
-    public static int value=0; // 共有するカウンターの値
+    public static int value=0; // 共有するカウンター値
   
     void OnEnable()
     { // 最初に行う

@@ -21,17 +21,11 @@ public class LevelManager : MonoBehaviour {
 	Vector3 AddPosition = new Vector3(0, 0, 0); // 移動量
 
 	public static　int level = 1; //現在のレベル
-    
-
+	public int Debuglevel = 1;//デバッグ用開始レベル
+	public int DebugDifficulty = 1;//デバッグ用開始難易度
 	void Awake()
 	{
 		//LevelObjects = GameObject.FindGameObjectsWithTag(LevelTag);//アクティブ状態の特定タグを配列化 
-
-		//for (n = 1; n < LevelObjects.Length; n++)
-		//{
-		//	Debug.Log("levelLength" + LevelObjects.Length); 
-		//	LevelObjects[n].SetActive(false);//レベルの子オブジェクトを一度非アクティブ化
-		//}
 	}
 
 	void OnEnable()
@@ -48,6 +42,13 @@ public class LevelManager : MonoBehaviour {
             //Debug.Log("levelLength" + LevelObjects.Length);
             LevelObjects[n].SetActive(false);//レベルの子オブジェクトを一度非アクティブ化
         }
+		//デバッグ用。このシーンから始めてたら以下の設定で開始する
+		if (StageCounter.value == 0)
+		{
+			StageCounter.value++;
+			level = Debuglevel;
+			DifficultyManager.Difficulty = DebugDifficulty;
+		}
 
 		//Level1
 		if (level == 1) 
@@ -90,7 +91,6 @@ public class LevelManager : MonoBehaviour {
 
     void StageSoat()
 	{
-        //for (n = 0; n < CeilingOrder.Length; n++) // タグの数だけ繰り返し
         for (n = 0; n < 18; n++) // タグの数だけ繰り返し
         {
             //天井を配置

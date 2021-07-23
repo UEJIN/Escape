@@ -16,13 +16,16 @@ public class ChangeMoveAmount : MonoBehaviour
     GameObject[] GroundOrder;
     private int n;
     LinerMove linerMove;
+    public LevelManager levelManager;
 
     // Start is called before the first frame update
     void Start()
     {
         //配列化
-        CeilingOrder = GameObject.FindGameObjectsWithTag(CeilingTag);　//特定タグを配列化
-        GroundOrder = GameObject.FindGameObjectsWithTag(GroundTag); //
+        //CeilingOrder = GameObject.FindGameObjectsWithTag(CeilingTag);　//特定タグを配列化
+        //GroundOrder = GameObject.FindGameObjectsWithTag(GroundTag); //
+        CeilingOrder = levelManager.CeilingOrder; 
+        GroundOrder = levelManager.GroundOrder;
 
         //移動開始位置変更
         n = Random.Range(0, CeilingOrder.Length);

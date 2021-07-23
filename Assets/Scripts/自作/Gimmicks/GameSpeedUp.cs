@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class GameSpeedUp : MonoBehaviour
 {
+    [ShowNonSerializedField]
     public static float GameSpeed = 1f;
     public float PlusSpeed = 0.5f;
-    public float MaxSpeed = 4f;
+    [ShowNonSerializedField]
+    public static float MaxSpeed = 4f;
 
     void OnEnable()
     {

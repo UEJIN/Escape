@@ -3050,46 +3050,48 @@ MonoBehaviour:
   LevelRange: 1
   AddPosX: 1
   CeilingOrder:
-  - {fileID: 472409723}
-  - {fileID: 1747205647}
-  - {fileID: 1667767235}
-  - {fileID: 1743387540}
-  - {fileID: 1827952761}
-  - {fileID: 1655458744}
-  - {fileID: 2049543985}
-  - {fileID: 297059993}
-  - {fileID: 997249384}
-  - {fileID: 360276985}
-  - {fileID: 1033030695}
-  - {fileID: 116894663}
-  - {fileID: 1170412039}
-  - {fileID: 1559168840}
-  - {fileID: 1380701752}
-  - {fileID: 2111036057}
-  - {fileID: 406304437}
   - {fileID: 458826269}
+  - {fileID: 406304437}
+  - {fileID: 2111036057}
+  - {fileID: 1380701752}
+  - {fileID: 1559168840}
+  - {fileID: 1170412039}
+  - {fileID: 116894663}
+  - {fileID: 1033030695}
+  - {fileID: 360276985}
+  - {fileID: 997249384}
+  - {fileID: 297059993}
+  - {fileID: 2049543985}
+  - {fileID: 1655458744}
+  - {fileID: 1827952761}
+  - {fileID: 1743387540}
+  - {fileID: 1667767235}
+  - {fileID: 1747205647}
+  - {fileID: 472409723}
   GroundOrder:
-  - {fileID: 1480326710}
-  - {fileID: 878287573}
-  - {fileID: 1671291145}
-  - {fileID: 341009571}
-  - {fileID: 894803536}
-  - {fileID: 289565018}
-  - {fileID: 78246571}
-  - {fileID: 1217702428}
-  - {fileID: 1032686681}
-  - {fileID: 1697969047}
-  - {fileID: 834662962}
-  - {fileID: 595667972}
-  - {fileID: 36345785}
-  - {fileID: 1329683164}
-  - {fileID: 1374814512}
-  - {fileID: 1181400040}
-  - {fileID: 595301955}
   - {fileID: 491799525}
+  - {fileID: 595301955}
+  - {fileID: 1181400040}
+  - {fileID: 1374814512}
+  - {fileID: 1329683164}
+  - {fileID: 36345785}
+  - {fileID: 595667972}
+  - {fileID: 834662962}
+  - {fileID: 1697969047}
+  - {fileID: 1032686681}
+  - {fileID: 1217702428}
+  - {fileID: 78246571}
+  - {fileID: 289565018}
+  - {fileID: 894803536}
+  - {fileID: 341009571}
+  - {fileID: 1671291145}
+  - {fileID: 878287573}
+  - {fileID: 1480326710}
   LevelParent: {fileID: 1855502922}
   MaxGoal: 3
   IniPosition: {x: -8.5, y: 7, z: 0}
+  Debuglevel: 1
+  DebugDifficulty: 3
 --- !u!1 &595301955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3439,7 @@ MonoBehaviour:
   CeilingEndColor: {r: 1, g: 1, b: 1, a: 0}
   GroundStartColor: {r: 1, g: 1, b: 1, a: 0}
   GroundEndColor: {r: 1, g: 1, b: 1, a: 1}
-  ChangeFinTime: 200
+  ChangeFinTime: 220
   CeilingCurve:
     serializedVersion: 2
     m_Curve:
@@ -3451,8 +3453,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.78285646
-      value: 0.31491303
+      time: 0.91995054
+      value: 0.38900226
       inSlope: 1.2073796
       outSlope: 1.2073796
       tangentMode: 0
@@ -3460,8 +3462,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.99580383
+      value: 0.99264145
       inSlope: 2
       outSlope: 2
       tangentMode: 0
@@ -3477,17 +3479,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.0069340128
-      outSlope: 0.0069340128
+      inSlope: 0.3137621
+      outSlope: 0.3137621
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.31902158
-      value: 0.0022120997
-      inSlope: 1.508013
-      outSlope: 1.508013
+      time: 0.3190192
+      value: 0.10009614
+      inSlope: 1.5128559
+      outSlope: 1.5128559
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -3495,8 +3497,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.64846087
       value: 0.99352527
-      inSlope: 1.5511317
-      outSlope: 1.5511317
+      inSlope: 1.4025605
+      outSlope: 1.4025605
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -4185,7 +4187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlusSpeed: 0.1
-  MaxSpeed: 3
 --- !u!114 &809924838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9532,8 +9533,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141106986}
-  - component: {fileID: 2141106987}
   - component: {fileID: 2141106988}
+  - component: {fileID: 2141106987}
   m_Layer: 0
   m_Name: Level (6)
   m_TagString: level
@@ -9571,6 +9572,7 @@ MonoBehaviour:
   GroundTag: ground
   ChangeSprite: {fileID: 21300000, guid: c9eb26be2a2fce143a169e2304592d37, type: 3}
   AddStartPosition: {x: 0, y: 1, z: 0}
+  levelManager: {fileID: 519420034}
 --- !u!114 &2141106988
 MonoBehaviour:
   m_ObjectHideFlags: 0
