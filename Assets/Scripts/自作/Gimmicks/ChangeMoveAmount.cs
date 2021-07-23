@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class ChangeMoveAmount : MonoBehaviour
 {
     public string CeilingTag = "ceiling"; 
     public string GroundTag = "ground";
+    [ShowAssetPreview]
     public Sprite ChangeSprite;
  
     [SerializeField]

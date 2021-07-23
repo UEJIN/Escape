@@ -9567,8 +9567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 519420034}
-  ChangeCeilingSprite: {fileID: 21300000, guid: f7406d98cbe5d0245987a854ef71e04e, type: 3}
-  ChangeGroundSprite: {fileID: 21300000, guid: f7406d98cbe5d0245987a854ef71e04e, type: 3}
+  ChangeCeilingSprite: {fileID: 21300000, guid: aeb4a513964867f4a9f12276415a6380, type: 3}
+  ChangeGroundSprite: {fileID: 21300000, guid: aeb4a513964867f4a9f12276415a6380, type: 3}
   HighWall1: {fileID: 1449313554}
   HighWall2: {fileID: 352276157}
   LowWall1: {fileID: 502360462}
