@@ -22,11 +22,11 @@ public class ChangeSprite : MonoBehaviour
 
     void OnEnable()
     {
-        //‚±‚Ìobject‚ÌSpriteRenderer‚ðŽæ“¾
+        
 
         CeilingOrder = levelManager.CeilingOrder;
         GroundOrder = levelManager.GroundOrder;
-
+        //object‚ÌSpriteRenderer‚©‚çsprite‚ðŽæ“¾
         HighWall1.GetComponent<SpriteRenderer>().sprite = ChangeCeilingSprite;
         HighWall2.GetComponent<SpriteRenderer>().sprite = ChangeCeilingSprite;
         LowWall1.GetComponent<SpriteRenderer>().sprite = ChangeGroundSprite;

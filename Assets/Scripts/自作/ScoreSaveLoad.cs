@@ -7,19 +7,22 @@ using UnityEngine.UI;  // 追加しましょう
 public class ScoreSaveLoad : MonoBehaviour
 {
     //ハイスコアの保存
-    public GameObject score_object = null; // Text表示オブジェクト
-    //public int score_num = 0; // スコア変数
+    GameObject score_object; // Text表示オブジェクト
+    public string SaveName = "EasyScore";
+    public int CheckDifficulty; // 対応する難易度
 
     // 初期化時の処理
     void Start()
     {
-        // スコアを保存
-        if (StageCounter.value > PlayerPrefs.GetInt("SCORE", 0)) 
+        score_object = this.gameObject;
+    
+        // ハイスコアならスコアを保存
+        if (StageCounter.value > PlayerPrefs.GetInt(SaveName, 0) && DifficultyManager.Difficulty == CheckDifficulty) 
         {
-            PlayerPrefs.SetInt("SCORE", StageCounter.value);
+            PlayerPrefs.SetInt(SaveName, StageCounter.value);
             PlayerPrefs.Save();
         }
-        Debug.Log("sukoa2_" + PlayerPrefs.GetInt("SCORE", 0));
+        //Debug.Log(SaveName + PlayerPrefs.GetInt(SaveName, 0).ToString());
     }
 
     // 削除時の処理
@@ -37,15 +40,11 @@ public class ScoreSaveLoad : MonoBehaviour
     void Update()
     {
        // スコアのロード
-       //Text score_text = score_object.GetComponent<Text>();
-       // score_text.text = "HighScore:" + PlayerPrefs.GetInt("SCORE", 0).ToString();
-
         // オブジェクトからTextコンポーネントを取得
         Text score_text = score_object.GetComponent<Text>();
         // テキストの表示を入れ替える
-        score_text.text = "HighScore:" + PlayerPrefs.GetInt("SCORE", 0).ToString();
+        score_text.text = "HighScore:" + PlayerPrefs.GetInt(SaveName, 0).ToString();
 
-        //score_num += 1; // とりあえず1加算し続けてみる
     }
 }
 

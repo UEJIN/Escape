@@ -29,7 +29,7 @@ public class GameSpeedUp : MonoBehaviour
     void OnDisable()
     {
         //もとに戻す
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
 
         //次読んだときはスピードアップした状態
         GameSpeed += PlusSpeed;

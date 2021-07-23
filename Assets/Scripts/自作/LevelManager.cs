@@ -5,29 +5,23 @@ using UnityEngine;
 // 最初に天井を並べ替える
 public class LevelManager : MonoBehaviour {
 
-	//public string CeilingTag = "ceiling";
-	//public string GroundTag = "ground";
-	//public string LevelTag = "level";
 	public float yMargin = 14.5f; // 天井と床のマージン。inspectorで設定
 	public int LevelRange = 1;
-
 	public int AddPosX = 1; //横軸の移動量
-	[SerializeField]
-	Vector3 IniPosition = new Vector3(-8.5f, 7f, 0f); // 基準位置。inspectorで設定
-
-	//public static GameObject[] CeilingOrder;
-	//public static GameObject[] GroundOrder;
-	//public static GameObject[] LevelObjects; //LevelObject	
     public GameObject[] CeilingOrder;
 	public GameObject[] GroundOrder;
 	public static GameObject[] LevelObjects; //LevelObject
 	public GameObject LevelParent;
-
+	public int MaxGoal = 3; //ゴールの最大数。easyのときのゴール数になる
+	[SerializeField]
+	Vector3 IniPosition = new Vector3(-8.5f, 7f, 0f); // 基準位置。inspectorで設定
 
 	private int n = 0; //カウンタ
 	private int GoalNum; //ゴールの位置
-    public static　int level = 1; //現在のレベル
-    Vector3 AddPosition = new Vector3(0, 0, 0); // 移動量
+	Vector3 AddPosition = new Vector3(0, 0, 0); // 移動量
+
+	public static　int level = 1; //現在のレベル
+    
 
 	void Awake()
 	{
@@ -47,7 +41,9 @@ public class LevelManager : MonoBehaviour {
 		
 		//Level自動配列化
 		GetAllChildObject();
-        for (n = 1; n < LevelObjects.Length; n++)
+
+		//レベルの子オブジェクトを一度非アクティブ化
+		for (n = 1; n < LevelObjects.Length; n++)
         {
             //Debug.Log("levelLength" + LevelObjects.Length);
             LevelObjects[n].SetActive(false);//レベルの子オブジェクトを一度非アクティブ化
@@ -78,6 +74,7 @@ public class LevelManager : MonoBehaviour {
 			else　//レベルが上限なら難易度を変更しない
 			{
 				StageSoat();
+				LevelObjects[LevelObjects.Length - 1].SetActive(true);
 			}
 
 		}
@@ -110,13 +107,15 @@ public class LevelManager : MonoBehaviour {
 
 	void CreatGoal()
 	{
-		//安置の設定
-		GoalNum = Random.Range(0, CeilingOrder.Length - 1); //安置をランダムに決定
 		AddPosition.x = 0;
 		AddPosition.y = 1;
-		CeilingOrder[GoalNum].transform.position += AddPosition; //安置を作成
-
-	}
+		//安置の設定、難易度に合わせて数を変更
+		for (int i = 1; i <= MaxGoal - DifficultyManager.Difficulty + 1; i++)
+        {
+            GoalNum = Random.Range(0, CeilingOrder.Length - 1); //安置をランダムに決定
+			CeilingOrder[GoalNum].transform.position += AddPosition; //安置を作成
+        }
+    }
 
 	private void GetAllChildObject()
 	{
