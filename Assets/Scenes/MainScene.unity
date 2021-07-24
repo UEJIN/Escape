@@ -3443,7 +3443,7 @@ MonoBehaviour:
   LevelParent: {fileID: 1855502922}
   MaxGoal: 3
   IniPosition: {x: -8.5, y: 7, z: 0}
-  Debuglevel: 7
+  Debuglevel: 1
   DebugDifficulty: 1
 --- !u!1 &595301955
 GameObject:
@@ -4844,7 +4844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedGradation: 0.1
-  Friction: 50
+  Friction: 100
   maxSpeed: 5
 --- !u!114 &848068805
 MonoBehaviour:
