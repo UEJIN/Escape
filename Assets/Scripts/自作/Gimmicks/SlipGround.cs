@@ -43,6 +43,13 @@ public class SlipGround : MonoBehaviour
             }
         }
 
+        //“™‘¬‰^“®
+        if (Input.GetAxis("Horizontal") + floatingjoystick.Horizontal == 0)
+        {
+            GameObject.Find("UnityChan2D").transform.Translate(Mathf.Abs(Speed) / Friction, 0, 0);
+
+        }
+
     }
     void Update()
     {
@@ -56,11 +63,6 @@ public class SlipGround : MonoBehaviour
             unityChan2DController.maxSpeed = Speed;
         }
 
-        //“™‘¬‰^“®
-        if (Input.GetAxis("Horizontal") + floatingjoystick.Horizontal == 0)
-        {
-            GameObject.Find("UnityChan2D").transform.Translate(Mathf.Abs(Speed) / Friction, 0, 0);
 
-        }
     }
 }

@@ -6,10 +6,10 @@ using NaughtyAttributes;
 public class GameSpeedUp : MonoBehaviour
 {
     [ShowNonSerializedField]
-    public static float GameSpeed = 1f;
+    public static float GameSpeed = 1.0f;
     public float PlusSpeed = 0.5f;
     [ShowNonSerializedField]
-    public static float MaxSpeed = 4f;
+    public static float MaxSpeed = 2.0f;
 
     void OnEnable()
     {
