@@ -4467,7 +4467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedGradation: 0.1
-  Friction: 1000
+  Friction: 50
   maxSpeed: 5
 --- !u!114 &848068805
 MonoBehaviour:
