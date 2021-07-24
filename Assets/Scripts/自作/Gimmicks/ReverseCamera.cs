@@ -4,11 +4,16 @@ public class ReverseCamera : MonoBehaviour
 {
     [SerializeField]
     public Vector3 scale = new Vector3(1, -1, 1);
-
+    [SerializeField]
+    public Vector3 TextRotation = new Vector3(0, 0, 0);
+    public GameObject text1;
+    public GameObject text2;
 
     void Start()
     {
         Camera.main.projectionMatrix = Camera.main.projectionMatrix * Matrix4x4.Scale(scale);
+        text1.transform.Rotate(TextRotation);
+        text2.transform.Rotate(TextRotation);
     }
 
     void OnPreCull()
@@ -30,4 +35,10 @@ public class ReverseCamera : MonoBehaviour
     {
         GL.invertCulling = false;
     }
+
+    void OnDisEnable()
+    {
+
+    }
+
 }

@@ -846,7 +846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -286.1111, y: 211.3889}
+  m_AnchoredPosition: {x: -335.59177, y: 214.72223}
   m_SizeDelta: {x: 358.9987, y: 59.2416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183786070
@@ -889,7 +889,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 63
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2245,6 +2245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: -1, y: -1, z: 1}
+  TextRotation: {x: 180, y: 180, z: 0}
+  text1: {fileID: 183786068}
+  text2: {fileID: 1747289226}
 --- !u!114 &455595567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3154,7 +3157,7 @@ MonoBehaviour:
   LevelParent: {fileID: 1855502922}
   MaxGoal: 3
   IniPosition: {x: -8.5, y: 7, z: 0}
-  Debuglevel: 11
+  Debuglevel: 1
   DebugDifficulty: 1
 --- !u!1 &595301955
 GameObject:
@@ -6159,6 +6162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: -1, y: 1, z: 1}
+  TextRotation: {x: 0, y: 180, z: 0}
+  text1: {fileID: 183786068}
+  text2: {fileID: 1747289226}
 --- !u!114 &1241862156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8393,7 +8399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -289.372, y: 214.72223}
+  m_AnchoredPosition: {x: -338.8527, y: 218.05556}
   m_SizeDelta: {x: 358.9987, y: 59.2416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1747289228
@@ -8436,7 +8442,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 63
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -9712,6 +9718,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: -1, z: 1}
+  TextRotation: {x: 180, y: 0, z: 0}
+  text1: {fileID: 183786068}
+  text2: {fileID: 1747289226}
 --- !u!114 &2143183901
 MonoBehaviour:
   m_ObjectHideFlags: 0
