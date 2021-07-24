@@ -11,7 +11,7 @@ public class Forever_ShowSpeedUp: MonoBehaviour {
 
 	void Update() { // ずっと
 
-		if (GameSpeedUp.GameSpeed > 1f)
+		if (GameSpeedUp.GameSpeed > 1.0f)
 		{
 			// カウンターの値を表示する
 			GetComponent<Text>().text = showtext1;

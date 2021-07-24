@@ -11,7 +11,8 @@ public class UnityChan2DController : MonoBehaviour
 
     private Animator m_animator;
     private BoxCollider2D m_boxcollier2D;
-    private Rigidbody2D m_rigidbody2D;
+    //private Rigidbody2D m_rigidbody2D;    //
+    public Rigidbody2D m_rigidbody2D;
     private bool m_isGround;
     private const float m_centerY = 1.5f;
 
@@ -56,6 +57,7 @@ public class UnityChan2DController : MonoBehaviour
     {
         if (m_state != State.Damaged)
         {
+            //float x = Input.GetAxis("Horizontal") + floatingjoystick.Horizontal;
             float x = Input.GetAxis("Horizontal") + floatingjoystick.Horizontal;
             //float x = Input.GetAxis("Horizontal");
             bool jump = Input.GetButtonDown("Jump");
