@@ -44,10 +44,10 @@ public class SlipGround : MonoBehaviour
         }
 
         //“™‘¬‰^“®
+        //if (Input.GetAxis("Horizontal") + floatingjoystick.Horizontal == 0 && unityChan2DController.groundFlag == true)
         if (Input.GetAxis("Horizontal") + floatingjoystick.Horizontal == 0)
         {
             GameObject.Find("UnityChan2D").transform.Translate(Mathf.Abs(Speed) / Friction, 0, 0);
-
         }
 
     }

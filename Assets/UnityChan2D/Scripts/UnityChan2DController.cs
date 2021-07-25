@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using NaughtyAttributes;
 [RequireComponent(typeof(Animator), typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class UnityChan2DController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class UnityChan2DController : MonoBehaviour
     private BoxCollider2D m_boxcollier2D;
     //private Rigidbody2D m_rigidbody2D;    //
     public Rigidbody2D m_rigidbody2D;
+    public string DamageTag = "DamageObject";
     private bool m_isGround;
     private const float m_centerY = 1.5f;
 
@@ -20,6 +22,17 @@ public class UnityChan2DController : MonoBehaviour
 
     private FloatingJoystick floatingjoystick;
 
+    public string groundTag = "ground";  // 地面判定タグ：Inspectorで指定
+    public string ceilingTag = "ceiling";       // 天井判定タグ：Inspectorで指定
+
+    [ReadOnly]
+    public bool groundFlag = false;
+    [ReadOnly]
+    public bool isPlessed = false;
+
+    public ButtonState jumpButton;
+    bool jumpinput;
+    float x;
 
     void Reset()
     {
@@ -57,11 +70,24 @@ public class UnityChan2DController : MonoBehaviour
     {
         if (m_state != State.Damaged)
         {
-            //float x = Input.GetAxis("Horizontal") + floatingjoystick.Horizontal;
-            float x = Input.GetAxis("Horizontal") + floatingjoystick.Horizontal;
-            //float x = Input.GetAxis("Horizontal");
-            bool jump = Input.GetButtonDown("Jump");
-            Move(x, jump);
+            x = Input.GetAxis("Horizontal") + floatingjoystick.Horizontal;
+            if (jumpButton.IsDown() || Input.GetButtonDown("Jump"))
+            {
+                jumpinput = true;
+            }
+            else
+            {
+                jumpinput = false;
+            }
+
+            if (isPlessed == false)
+            {
+                Move(x, jumpinput);
+            }
+            else
+            {
+                Move(0, false);
+            }
         }
     }
 
@@ -97,13 +123,38 @@ public class UnityChan2DController : MonoBehaviour
         m_animator.SetBool("isGround", m_isGround);
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    //void OnTriggerStay2D(Collider2D other)
+    //{
+    //    if (other.tag == DamageTag && m_state == State.Normal)
+    //    {
+    //        m_state = State.Damaged;
+    //        StartCoroutine(INTERNAL_OnDamage());
+    //    }
+    //}
+
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.tag == "DamageObject" && m_state == State.Normal)
+        //接地判定
+        if (collision.gameObject.CompareTag(groundTag))
         {
-            m_state = State.Damaged;
-            StartCoroutine(INTERNAL_OnDamage());
+            groundFlag = true;
         }
+
+        if (isPlessed == false)
+        {
+            //接地かつ天井接触
+            if (groundFlag && collision.gameObject.CompareTag(ceilingTag))
+            {
+                m_state = State.Damaged;
+                StartCoroutine(INTERNAL_OnDamage());
+                isPlessed = true;
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    { // 接地OFF
+        groundFlag = false;
     }
 
     IEnumerator INTERNAL_OnDamage()
