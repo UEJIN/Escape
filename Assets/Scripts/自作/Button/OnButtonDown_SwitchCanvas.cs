@@ -10,7 +10,7 @@ public class OnButtonDown_SwitchCanvas : MonoBehaviour {
 
     public ButtonState SceneMoveButton;
 
-    void Update() 
+    void FixedUpdate() 
 	{ // タッチしたら
       // シーンを切り換える
 
@@ -20,7 +20,7 @@ public class OnButtonDown_SwitchCanvas : MonoBehaviour {
             NextCanvas.SetActive(true);
         }
     }
-	void FixedUpdate()
+	void Update()
     {
 
 	}
