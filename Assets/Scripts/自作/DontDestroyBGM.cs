@@ -28,7 +28,7 @@ public class DontDestroyBGM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.timeScale == 0)
+        if(LifeManager.LifeNum == 0)
         {
             //‚±‚ÌGameObject‚ðSampleScene1‚ÉˆÚ“®
             SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName(DefaultSceneName));

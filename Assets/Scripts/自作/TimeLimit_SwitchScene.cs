@@ -25,7 +25,7 @@ public class TimeLimit_SwitchScene : MonoBehaviour {
 	}
 	void Update()
     {
-		if (count >= TimeLimit)
+		if (count >= TimeLimit && LifeManager.LifeNum !=0)
 		{ // もし、maxCountになったら
 			SceneManager.LoadScene(sceneName); //シーン移動
 		}

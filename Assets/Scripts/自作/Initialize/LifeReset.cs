@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class LifeReset : MonoBehaviour
 {
-    public int IniLife = 1;
     // Start is called before the first frame update
     void Start()
     {
-        LifeManager.LifeNum = IniLife;
+        LifeManager.LifeNum = LifeManager.IniLife;
     }
 
     // Update is called once per frame

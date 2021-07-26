@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 // 挟まれると、表示する
 public class LifeManager : MonoBehaviour {
-
-	public static int LifeNum = 3;   // ライフカウンター、数字はデバッグ用の初期値
+	[ShowNonSerializedField]
+	public static int LifeNum = 1;   // ライフカウンター、数字はデバッグ用の初期値
+	[ShowNonSerializedField]
+	public static int IniLife = 3;
 	public string groundTag = "ground";  // 地面判定タグ：Inspectorで指定
 	public string ceilingTag = "ceiling";       // 天井判定タグ：Inspectorで指定
 	bool groundFlag = false;
@@ -19,9 +22,9 @@ public class LifeManager : MonoBehaviour {
     {
 		if(LifeNum == 0)
         {
-			Time.timeScale = 0; //時間を止める
-		}
-	}
+            //Time.timeScale = 0; //時間を止める
+        }
+    }
 
 	void OnTriggerStay2D(Collider2D collision)	
 	{ 
