@@ -8,6 +8,7 @@ public class OnLifeZero_Show : MonoBehaviour {
     public string showObjectName;   // 表示オブジェクト名：Inspectorで指定
     public string groundTag = "ground";  // 地面判定タグ：Inspectorで指定
 	public string ceilingTag = "ceiling";       // 天井判定タグ：Inspectorで指定
+	bool isFinish;
     GameObject showObject;
 
     void Start() { // 最初に行う
@@ -18,12 +19,16 @@ public class OnLifeZero_Show : MonoBehaviour {
 
 	void Update()
 	{
-		if (LifeManager.LifeNum == 0)
+		if (!isFinish && LifeManager.LifeNum == 0)
 		{
-			showObject.SetActive(true); // 消していたものを表示する
+			isFinish = true;
+			Invoke("ShowwObject", 2.0f);//二秒後に呼び出す
 
 		}
 
 	}
-	
+	void ShowwObject()
+    {
+		showObject.SetActive(true); // 消していたものを表示する
+	}
 }
