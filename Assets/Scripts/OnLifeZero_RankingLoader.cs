@@ -5,6 +5,7 @@ using UnityEngine;
 public class OnLifeZero_RankingLoader : MonoBehaviour
 {
     bool isFinish = false;
+    public float DelayTime = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,13 @@ public class OnLifeZero_RankingLoader : MonoBehaviour
         if (LifeManager.LifeNum == 0 && !isFinish)
         {
             isFinish = true;
-            naichilab.RankingLoader.Instance.SendScoreAndShowRanking(StageCounter.value, DifficultyManager.Difficulty-1);
+            Invoke("ShowRanking", DelayTime);
+            
         }
+    }
+
+    void ShowRanking()
+    {
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(StageCounter.value, DifficultyManager.Difficulty - 1);
     }
 }

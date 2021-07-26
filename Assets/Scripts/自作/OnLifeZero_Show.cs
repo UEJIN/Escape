@@ -8,6 +8,7 @@ public class OnLifeZero_Show : MonoBehaviour {
     public string showObjectName;   // 表示オブジェクト名：Inspectorで指定
     public string groundTag = "ground";  // 地面判定タグ：Inspectorで指定
 	public string ceilingTag = "ceiling";       // 天井判定タグ：Inspectorで指定
+	public float DelayTime = 0.5f;
 	bool isFinish;
     GameObject showObject;
 
@@ -22,7 +23,7 @@ public class OnLifeZero_Show : MonoBehaviour {
 		if (!isFinish && LifeManager.LifeNum == 0)
 		{
 			isFinish = true;
-			Invoke("ShowwObject", 2.0f);//二秒後に呼び出す
+			Invoke("ShowwObject", DelayTime);//秒後に呼び出す
 
 		}
 

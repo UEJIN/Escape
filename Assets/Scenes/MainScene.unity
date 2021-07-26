@@ -3475,6 +3475,7 @@ MonoBehaviour:
   showObjectName: ButtonB
   groundTag: ground
   ceilingTag: ceiling
+  DelayTime: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3619,6 +3620,7 @@ MonoBehaviour:
   showObjectName: GameOver
   groundTag: ground
   ceilingTag: ceiling
+  DelayTime: 0.1
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3631,6 +3633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6279c8317793164c90ac60374354809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DelayTime: 0.5
 --- !u!1 &595301955
 GameObject:
   m_ObjectHideFlags: 0
