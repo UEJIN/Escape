@@ -2677,7 +2677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c51ca7b82185142b2a212ccd86ead3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IniLife: 1
 --- !u!1 &568691304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3710,6 +3709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NowCanvas: {fileID: 1127789137}
   NextCanvas: {fileID: 1328548522}
+  DelayTime: 0.5
   SceneMoveButton: {fileID: 699249367}
 --- !u!114 &699249367
 MonoBehaviour:
