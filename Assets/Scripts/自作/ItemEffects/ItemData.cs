@@ -7,7 +7,7 @@ using NaughtyAttributes;
 
 //[Serializable]
 //[CreateAssetMenu(fileName = "Item", menuName = "MyScriptable/CreateItem")]
-public class ItemDataScript : MonoBehaviour
+public class ItemData : MonoBehaviour
 {
 	//情報を持つだけのクラス
 	//効果スクリプト側は、このスクリプトの状態を見てオンオフ（and破壊するしない）を制御する。
@@ -33,10 +33,10 @@ public class ItemDataScript : MonoBehaviour
 	private string information;
 	//　アイテムの所持
 	[SerializeField]
-	private bool isPossetion;
+	public bool isPossession;
 	//　アイテムの装備
 	[SerializeField]
-	private bool isEquip;
+	public bool isEquip;
 	//　アイテムの効果
 	//[SerializeField]
 	//public GameObject Effects;
@@ -61,9 +61,9 @@ public class ItemDataScript : MonoBehaviour
 		return information;
 	}
 
-	public bool GetIsPossetion()
+	public bool GetIsPossession()
     {
-		return isPossetion;
+		return isPossession;
 
     }
 
