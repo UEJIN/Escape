@@ -25,7 +25,7 @@ public class CreateItemSlot : MonoBehaviour
     {
         //　アイテムデータベースに登録されているアイテム用のスロットを全作成
         CreateSlot(playersItem.GetPossessionList());
-        Debug.Log("PossessionList" + playersItem.GetPossessionList().Length);
+        //Debug.Log("PossessionList" + playersItem.GetPossessionList().Length);
     }
 
     //　アイテムスロットの作成
@@ -49,7 +49,7 @@ public class CreateItemSlot : MonoBehaviour
             //　スロットゲームオブジェクトの名前を設定
             instanceSlot.name = "ItemSlot" + i++;
             //　Scaleを設定しないと0になるので設定
-            instanceSlot.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            instanceSlot.transform.localScale = new Vector3(1f, 1f, 1f);
             //　アイテム情報をスロットのProcessingSlotに設定する
             instanceSlot.GetComponent<ItemSlotManager>().SetItemData(item);
             //}

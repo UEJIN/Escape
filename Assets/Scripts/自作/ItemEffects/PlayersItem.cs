@@ -23,8 +23,8 @@ public class PlayersItem : MonoBehaviour
 
     void Update()
     {
-        CreatePossessionList();
-        CreateEquipmentList();
+        //CreatePossessionList();
+        //CreateEquipmentList();
         //Debug.Log("ItemList" + ItemList.Length);
         //Debug.Log("PossessionList" + PossessionList.Length);
         //Debug.Log("EquipmentList" + EquipmentList.Length);
@@ -80,18 +80,18 @@ public class PlayersItem : MonoBehaviour
 
     public GameObject[] GetPossessionList()
     {
-        CreateItemList();
-        int a = 0;
-        PossessionList = new GameObject[transform.childCount];
+        //CreateItemList();
+        //int a = 0;
+        //PossessionList = new GameObject[transform.childCount];
 
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (ItemList[i].GetComponent<ItemData>().GetIsPossession())
-            {
-                PossessionList[a] = ItemList[i];
-                a++;
-            }
-        }
+        //for (int i = 0; i < transform.childCount; i++)
+        //{
+        //    if (ItemList[i].GetComponent<ItemData>().GetIsPossession())
+        //    {
+        //        PossessionList[a] = ItemList[i];
+        //        a++;
+        //    }
+        //}
 
         return PossessionList;
     }

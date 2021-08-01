@@ -16,6 +16,8 @@ public class ItemSlotManager : MonoBehaviour
     public ItemData myItemData;
     //　アイテムスロットのボタン
     ButtonState ItemSlotButton;
+    ButtonState EquipButton;
+    ButtonState RemoveButton;
 
     //　スロットが非アクティブになったら削除
     void OnDisable()
@@ -44,6 +46,15 @@ public class ItemSlotManager : MonoBehaviour
     {
         //　アイテムスロットの親の親からInformationゲームオブジェクトを探しTextコンポーネントを取得する
         informationText = transform.parent.parent.Find("Panel_Infomation").GetChild(0).GetComponent<Text>();
+
+        EquipButton = transform.parent.parent.Find("Buttons").GetChild(0).GetComponent<ButtonState>();
+        RemoveButton = transform.parent.parent.Find("Buttons").GetChild(1).GetComponent<ButtonState>();
+
+        //初期の装備状態を反映
+        if (myItemData.isEquip == true)
+        {
+            transform.GetComponent<Image>().color = new Color(255f, 0f, 0f, 100f);
+        }
     }
 
     void Update()
@@ -54,6 +65,33 @@ public class ItemSlotManager : MonoBehaviour
             //　情報表示テキストに自身のアイテムの情報を表示
             informationText.text = myItemData.GetItemName() + ":" + myItemData.GetInformation();
 
+        }
+
+        //タイルを選択している状態で装備ボタンを押したら
+        if (informationText.text == myItemData.GetItemName() + ":" + myItemData.GetInformation() && EquipButton.IsDown() == true)
+        {
+            //装備
+            if (myItemData.isEquip == false)
+            {
+                myItemData.isEquip = true;
+                transform.GetComponent<Image>().color = new Color(255f,0f,0f,100f);
+            }
+            //else
+            //{
+            //    myItemData.isEquip = false;
+            //    transform.GetComponent<Image>().color = new Color(255f, 255f, 255f, 100f);
+            //}
+        }
+
+        //タイルを選択している状態で解除ボタンを押したら
+        if (informationText.text == myItemData.GetItemName() + ":" + myItemData.GetInformation() && RemoveButton.IsDown() == true)
+        {
+            //装備解除
+            if (myItemData.isEquip == true)
+            {
+                myItemData.isEquip = false;
+                transform.GetComponent<Image>().color = new Color(255f, 255f, 255f, 100f);
+            }
         }
         //else
         //{
