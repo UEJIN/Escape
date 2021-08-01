@@ -59,18 +59,17 @@ public class ItemSlotManager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(informationText.text);
+        //アイテムスロットを選択時
         if (ItemSlotButton.IsDown() == true)
         {
             //　情報表示テキストに自身のアイテムの情報を表示
             informationText.text = myItemData.GetItemName() + ":" + myItemData.GetInformation();
-
         }
 
         //タイルを選択している状態で装備ボタンを押したら
         if (informationText.text == myItemData.GetItemName() + ":" + myItemData.GetInformation() && EquipButton.IsDown() == true)
         {
-            //装備
+            //装備する
             if (myItemData.isEquip == false)
             {
                 myItemData.isEquip = true;
@@ -86,7 +85,7 @@ public class ItemSlotManager : MonoBehaviour
         //タイルを選択している状態で解除ボタンを押したら
         if (informationText.text == myItemData.GetItemName() + ":" + myItemData.GetInformation() && RemoveButton.IsDown() == true)
         {
-            //装備解除
+            //装備解除する
             if (myItemData.isEquip == true)
             {
                 myItemData.isEquip = false;

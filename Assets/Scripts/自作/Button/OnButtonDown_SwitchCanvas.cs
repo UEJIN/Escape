@@ -1,13 +1,15 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine;
 
 // タッチすると、キャンバスを切り換える
-public class OnButtonDown_SwitchCanvas : MonoBehaviour {
+public class OnButtonDown_SwitchCanvas : MonoBehaviour
+{
 
-	public GameObject NowCanvas;  // シーン名：Inspectorで指定
+    public GameObject NowCanvas;  // シーン名：Inspectorで指定
     public GameObject NextCanvas;  // シーン名：Inspectorで指定
-    public float DelayTime=5f;
+    public float DelayTime = 5f;
     ButtonState SceneMoveButton;
 
 
@@ -16,8 +18,8 @@ public class OnButtonDown_SwitchCanvas : MonoBehaviour {
         SceneMoveButton = this.gameObject.GetComponent<ButtonState>();
     }
 
-    void FixedUpdate() 
-	{ // タッチしたら
+    void FixedUpdate()
+    { // タッチしたら
       // シーンを切り換える
         Invoke("SwitchCanvas", DelayTime);
         //SwitchCanvas();
