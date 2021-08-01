@@ -29,7 +29,7 @@ public class ItemData : MonoBehaviour
 	[SerializeField]
 	private string itemName;
 	//　アイテムの情報
-	[SerializeField]
+	[SerializeField, TextArea]
 	private string information;
 	//　アイテムの所持
 	[SerializeField]
