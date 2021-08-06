@@ -37,6 +37,10 @@ public class CreateItemSlot : MonoBehaviour
 
         for (int a = 0; a < PossessionList.Length; a++)
         {
+            if(PossessionList[a]==null)
+            {
+                break;
+            }
 
             var item = PossessionList[a].GetComponent<ItemData>();
 

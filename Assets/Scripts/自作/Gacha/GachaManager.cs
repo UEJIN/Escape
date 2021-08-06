@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GachaManager : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class GachaManager : MonoBehaviour
 
     //ガチャボタンを指定
     public ButtonState GachaButtonState;
+
+    //ガチャ結果表示テキスト
+    public Text ItemText;
+
+    public Image GachaResultIcon;
 
     //最終結果アイテム
     private GameObject ResultItem;
@@ -46,6 +52,9 @@ public class GachaManager : MonoBehaviour
             }
             //ガチャ演出
 
+            //ガチャ結果表示
+            ItemText.text = ResultItem.GetComponent<ItemData>().GetItemName();
+            GachaResultIcon.sprite = ResultItem.GetComponent<ItemData>().GetIcon();
         }
     }
     

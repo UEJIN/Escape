@@ -31,6 +31,12 @@ public class ItemData : MonoBehaviour
 	//　アイテムの情報
 	[SerializeField, TextArea]
 	private string information;
+	//　アイテムの効果
+	[SerializeField]
+	private string itemEffect;
+	//　アイテムのコスト
+	[SerializeField]
+	private int itemCost = 1;
 	//　アイテムの所持
 	[SerializeField]
 	public bool isPossession;

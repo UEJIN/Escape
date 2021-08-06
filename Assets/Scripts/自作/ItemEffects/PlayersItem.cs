@@ -23,7 +23,7 @@ public class PlayersItem : MonoBehaviour
 
     void Update()
     {
-        //CreatePossessionList();
+        CreatePossessionList();
         //CreateEquipmentList();
         //Debug.Log("ItemList" + ItemList.Length);
         //Debug.Log("PossessionList" + PossessionList.Length);
