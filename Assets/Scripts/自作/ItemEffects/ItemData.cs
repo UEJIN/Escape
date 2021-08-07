@@ -61,11 +61,19 @@ public class ItemData : MonoBehaviour
 	{
 		return itemName;
 	}
-
+	public string GetItemEffect()
+	{
+		return itemEffect;
+	}
 	public string GetInformation()
 	{
 		return information;
 	}
+
+	public int GetItemCost()
+    {
+		return itemCost;
+    }
 
 	public bool GetIsPossession()
     {

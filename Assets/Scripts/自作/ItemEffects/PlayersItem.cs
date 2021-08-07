@@ -10,7 +10,7 @@ public class PlayersItem : MonoBehaviour
     public static GameObject[] EquipmentList;
     //public static List<GameObject> ItemList;
     //public static List<GameObject> PossessionList;
-    //public static List<GameObject> EquipmentList;
+    //public List<GameObject> equipmentList;
 
     //アイテムリストを返す
 
@@ -24,6 +24,7 @@ public class PlayersItem : MonoBehaviour
     void Update()
     {
         CreatePossessionList();
+        CreateEquipmentList();
         //CreateEquipmentList();
         //Debug.Log("ItemList" + ItemList.Length);
         //Debug.Log("PossessionList" + PossessionList.Length);
@@ -73,33 +74,32 @@ public class PlayersItem : MonoBehaviour
                 EquipmentList[a] = ItemList[i];
                 a++;
             }
-            
+
         }
-        
+
     }
+    //public void CreateEquipmentList()
+    //{
+    //    for (int i = 0; i < transform.childCount; i++)
+    //    {
+    //        if (ItemList[i].GetComponent<ItemData>().GetIsEquip())
+    //        {
+    //            equipmentList.Add(ItemList[i]);
+    //        }
+
+    //    }
+
+    //}
+
 
     public GameObject[] GetPossessionList()
     {
-        //CreateItemList();
-        //int a = 0;
-        //PossessionList = new GameObject[transform.childCount];
-
-        //for (int i = 0; i < transform.childCount; i++)
-        //{
-        //    if (ItemList[i].GetComponent<ItemData>().GetIsPossession())
-        //    {
-        //        PossessionList[a] = ItemList[i];
-        //        a++;
-        //    }
-        //}
-
         return PossessionList;
     }
 
     public GameObject[] GetEquipmentList()
     {
         return EquipmentList;
-
     }
 
 }
