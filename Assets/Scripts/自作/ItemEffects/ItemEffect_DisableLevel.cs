@@ -11,8 +11,8 @@ public class ItemEffect_DisableLevel : MonoBehaviour
     private bool isFinish = false;
 
     [SerializeField]
-    private int SlipLevel = 7;
-    //LevelManager LevelManager;
+    private int DisableLevel;
+    private GameObject copy;
 
 
     void Awake()
@@ -22,13 +22,6 @@ public class ItemEffect_DisableLevel : MonoBehaviour
 
         //親オブジェクトを記憶
         Parent = transform.root.gameObject;
-
-        ////新しく起動したとき重複したら破壊する（シーンまたいで保持するための処理）
-        //int n = FindObjectsOfType<ItemEffect_DisableLevel>().Length;
-        //if (n > 1)
-        //{
-        //    Destroy(gameObject);
-        //}
 
     }
 
@@ -46,14 +39,14 @@ public class ItemEffect_DisableLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //装備状態の確認
-        if (itemData.GetIsEquip() == true)
-        {   //装備してたら
+        ////装備状態の確認
+        //if (itemData.GetIsEquip() == true)
+        //{   //装備してたら
 
-            //親離れ
-            transform.parent = null;
-            //シーンまたいでも保持されるようにしておく（rootにあるオブジェクトにしかつかえないので親離れ必要）
-            DontDestroyOnLoad(gameObject);
+        //    //親離れ
+        //    transform.parent = null;
+        //    //シーンまたいでも保持されるようにしておく（rootにあるオブジェクトにしかつかえないので親離れ必要）
+        //    DontDestroyOnLoad(gameObject);
 
             //装備してかつメインシーンなら（装備していないとメインシーンに持っていけない）
             if (SceneManager.GetActiveScene().name == "MainScene" && isFinish == false)
@@ -61,9 +54,9 @@ public class ItemEffect_DisableLevel : MonoBehaviour
                 isFinish = true;
 
                 //指定のレベルが有効なら無効化
-                if (LevelManager.LevelObjects[SlipLevel].activeSelf)
+                if (LevelManager.LevelObjects[DisableLevel].activeSelf)
                 {
-                    LevelManager.LevelObjects[SlipLevel].SetActive(false);
+                    LevelManager.LevelObjects[DisableLevel].SetActive(false);
                 }
             }
 
@@ -83,13 +76,14 @@ public class ItemEffect_DisableLevel : MonoBehaviour
                 SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
             }
 
-        }
-        else
-        {   //装備してなかったら
+        //}
+        //else
+        //{   //装備してなかったら
 
-            //元の親にもどる
-            transform.parent = Parent.transform;
-        }
+        //    //元の親にもどる
+        //    transform.parent = Parent.transform;
+        //    //Destroy(copy);
+        //}
     }
 
     void OnDisable()

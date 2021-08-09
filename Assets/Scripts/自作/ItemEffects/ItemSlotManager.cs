@@ -65,12 +65,12 @@ public class ItemSlotManager : MonoBehaviour
         if (ItemSlotButton.IsDown() == true)
         {
             //　情報表示テキストに自身のアイテムの情報を表示
-            informationText.text = myItemData.GetItemName() + ":" + myItemData.GetInformation();
+            informationText.text = myItemData.GetItemName() + ":" + myItemData.GetInformation()+"\n【効果】"+myItemData.GetItemEffect();
         }
 
     }
 
-    // 装備オンオフ
+    // 装備オンオフ制御
     private void EquipOnOff()
     {
         //タイルを選択している状態で装備ボタンを押したら
@@ -82,6 +82,7 @@ public class ItemSlotManager : MonoBehaviour
                 if (myItemData.isEquip == false)
                 {
                     myItemData.isEquip = true;
+                    //装備しているときの色
                     transform.GetComponent<Image>().color = new Color(255f, 0f, 0f, 100f);
   
                 }
@@ -96,6 +97,7 @@ public class ItemSlotManager : MonoBehaviour
             if (myItemData.isEquip == true)
             {
                 myItemData.isEquip = false;
+                //装備してないときの色
                 transform.GetComponent<Image>().color = new Color(255f, 255f, 255f, 100f);
 
             }

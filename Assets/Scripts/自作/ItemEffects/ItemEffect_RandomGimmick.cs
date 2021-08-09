@@ -45,7 +45,7 @@ public class ItemEffect_RandomGimmick : MonoBehaviour
         if (itemData.GetIsEquip() == true)
         {   //装備してたら
 
-            //親離れ
+            //親離れ（DontDestroyOnLoadするために必要）
             transform.parent = null;
             //シーンまたいでも保持されるようにしておく（rootにあるオブジェクトにしかつかえないので親離れ必要）
             DontDestroyOnLoad(gameObject);

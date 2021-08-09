@@ -6667,6 +6667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a48e24ca2273f42b9cdcd8d1641b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PossessionList: []
+  TempPossessionList: []
 --- !u!1 &606445322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7830,7 +7832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultSceneName: StartScene
-  SlipLevel: 7
+  DisableLevel: 7
 --- !u!114 &730761830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11347,7 +11349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultSceneName: StartScene
-  SlipLevel: 6
+  DisableLevel: 6
 --- !u!114 &1023008838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12625,7 +12627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultSceneName: StartScene
-  SlipLevel: 11
+  DisableLevel: 11
 --- !u!114 &1127403623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14707,7 +14709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultSceneName: StartScene
-  SlipLevel: 8
+  DisableLevel: 8
 --- !u!114 &1271360478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20366,7 +20368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultSceneName: StartScene
-  SlipLevel: 10
+  DisableLevel: 10
 --- !u!114 &1898866651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20876,7 +20878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultSceneName: StartScene
-  SlipLevel: 9
+  DisableLevel: 9
 --- !u!1 &2010745162
 GameObject:
   m_ObjectHideFlags: 0

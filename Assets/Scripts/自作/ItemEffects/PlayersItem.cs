@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayersItem : MonoBehaviour
 {
     public static GameObject[] ItemList; 
-    public static GameObject[] PossessionList;
     public static GameObject[] EquipmentList;
-    //public static List<GameObject> ItemList;
-    //public static List<GameObject> PossessionList;
+    public List<GameObject> PossessionList;
+    public List<GameObject> TempPossessionList;
+
     //public List<GameObject> equipmentList;
 
     //アイテムリストを返す
@@ -17,25 +17,23 @@ public class PlayersItem : MonoBehaviour
     void Awake()
     {
         CreateItemList();
-        CreatePossessionList();
+
+        UpdatePossessionList();
         CreateEquipmentList();
     }
 
     void Update()
     {
-        CreatePossessionList();
+        UpdatePossessionList();
         CreateEquipmentList();
-        //CreateEquipmentList();
+
         //Debug.Log("ItemList" + ItemList.Length);
-        //Debug.Log("PossessionList" + PossessionList.Length);
+        //Debug.Log("PossessionList" + PossessionList.ToArray().Length);
         //Debug.Log("EquipmentList" + EquipmentList.Length);
     }
 
-    //public GameObject[] GetItemList()
-    //{
-    //    return ItemList;
-    //}
 
+    //アイテムリストを作成（最初に一回だけ）
     private void CreateItemList()
     {
         ItemList = new GameObject[transform.childCount];
@@ -46,20 +44,27 @@ public class PlayersItem : MonoBehaviour
         }
     }
 
-    public void CreatePossessionList()
+    //所持品リストを更新
+    public void UpdatePossessionList()
     {
-        int a = 0;
-        PossessionList = new GameObject[transform.childCount];
-
+        //所持品リストを仮更新
+        TempPossessionList.Clear();
         for (int i = 0; i < transform.childCount; i++)
         {
-            if(ItemList[i].GetComponent<ItemData>().GetIsPossession())
+            if (ItemList[i].GetComponent<ItemData>().GetIsPossession())
             {
-                PossessionList[a] = ItemList[i];
-                a++;
+                TempPossessionList.Add(ItemList[i]);
             }
+
         }
-        
+
+        //変更があれば反映
+        if (PossessionList != TempPossessionList)
+        {
+            PossessionList = TempPossessionList;
+        }
+
+
     }
 
     public void CreateEquipmentList()
@@ -78,23 +83,15 @@ public class PlayersItem : MonoBehaviour
         }
 
     }
-    //public void CreateEquipmentList()
-    //{
-    //    for (int i = 0; i < transform.childCount; i++)
-    //    {
-    //        if (ItemList[i].GetComponent<ItemData>().GetIsEquip())
-    //        {
-    //            equipmentList.Add(ItemList[i]);
-    //        }
 
-    //    }
-
-    //}
-
+    public GameObject[] GetItemList()
+    {
+        return ItemList;
+    }
 
     public GameObject[] GetPossessionList()
     {
-        return PossessionList;
+        return PossessionList.ToArray();
     }
 
     public GameObject[] GetEquipmentList()
