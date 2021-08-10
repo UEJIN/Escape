@@ -6451,6 +6451,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50867e44a2925f44393321b6244d84b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData:
+    Life: 0
+    Attack: 0
+    Defense: 0
+    GachaPoint: 0
+    Volume: 0
+    isPossession: 
+    isEquip: 
 --- !u!1 &481571684
 GameObject:
   m_ObjectHideFlags: 0
@@ -18772,6 +18780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780982e0531a3ec42b5634aa408cfb96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GachaCost: 10
   SSRratio: 2
   SRratio: 18
   Rratio: 30

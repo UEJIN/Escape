@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class GachaManager : MonoBehaviour
 {
+    //ガチャポイント
+    public static int GachaPoint;
+
+    //ガチャ消費ポイント
+    public int GachaCost = 10;
+
+    //ガチャポイントテキスト
+    public Text GachaPointText;
+    
     //各レアリティの排出率を手動で設定
     public float SSRratio = 2f;
     public float SRratio = 18f;
@@ -41,47 +50,56 @@ public class GachaManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GachaPoint = 10000;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        GachaPointText.text = "消費ポイント : "+ GachaCost.ToString() + "/" + GachaPoint.ToString();
+        Debug.Log("gachapoint:"+GachaPoint);
+        
         //ガチャボタンが押されたら
-        if(GachaButtonState.IsDown())
+        if (GachaButtonState.IsDown())
         {
-            //ポイントを消費
-
-            //アイテム決定
-            ResultItem = ChoseGachaResult();
-
-            //アイテムを取得状態にする
-            if (ResultItem.GetComponent<ItemData>().isPossession == false)
+            //ポイントが足りていれば
+            if (GachaPoint >= GachaCost)
             {
-                ResultItem.GetComponent<ItemData>().isPossession = true;
-                isNewItem = true;//持ってなければnew
-            }
-            else
-            {
-                isNewItem = false;//持っていればなし
-            }
+                //ポイントを消費
+                GachaPoint -= GachaCost;
+            
+                //アイテム決定
+                ResultItem = ChoseGachaResult();
 
-            //ガチャ演出
+                //アイテムを取得状態にする
+                if (ResultItem.GetComponent<ItemData>().isPossession == false)
+                {
+                    ResultItem.GetComponent<ItemData>().isPossession = true;
+                    isNewItem = true;//持ってなければnew
+                }
+                else
+                {
+                    isNewItem = false;//持っていればなし
+                }
 
-            //ガチャ結果表示
-            //結果テキスト
-            if (isNewItem)
-            {
-                ItemText.color = new Color(255f / 255f, 0f / 255f, 0f / 255f, 255f/255f);
-                ItemText.text = "NEW 【" + Rarity + "】" + ResultItem.GetComponent<ItemData>().GetItemName();
+                //ガチャ演出
+
+                //ガチャ結果表示テキスト
+                if (isNewItem)
+                {
+                    ItemText.color = new Color(255f / 255f, 0f / 255f, 0f / 255f, 255f/255f);
+                    ItemText.text = "NEW 【" + Rarity + "】" + ResultItem.GetComponent<ItemData>().GetItemName();
+                }
+                else
+                {
+                    ItemText.color = new Color(50f / 255f, 50f / 255f, 50f / 255f, 255f / 255f);
+                    ItemText.text = "【" + Rarity + "】" + ResultItem.GetComponent<ItemData>().GetItemName();
+                }
+                //結果アイコン
+                GachaResultIcon.sprite = ResultItem.GetComponent<ItemData>().GetIcon();
+
             }
-            else
-            {
-                ItemText.color = new Color(50f / 255f, 50f / 255f, 50f / 255f, 255f / 255f);
-                ItemText.text = "【" + Rarity + "】" + ResultItem.GetComponent<ItemData>().GetItemName();
-            }
-            //結果アイコン
-            GachaResultIcon.sprite = ResultItem.GetComponent<ItemData>().GetIcon();
         }
     }
     
