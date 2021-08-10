@@ -15,6 +15,8 @@ public class ItemSlotManager : MonoBehaviour
     ButtonState RemoveButton;
     EquipManager equipManager;
 
+    private string InfoText;
+
     //　スロットが非アクティブになったら削除
     void OnDisable()
     {
@@ -65,7 +67,8 @@ public class ItemSlotManager : MonoBehaviour
         if (ItemSlotButton.IsDown() == true)
         {
             //　情報表示テキストに自身のアイテムの情報を表示
-            informationText.text = myItemData.GetItemName() + ":" + myItemData.GetInformation()+"\n【効果】"+myItemData.GetItemEffect();
+            InfoText = myItemData.GetItemName() + ":" + myItemData.GetInformation() + "\n【効果】" + myItemData.GetItemEffect() + "\n【コスト】" + myItemData.GetItemCost();
+            informationText.text = InfoText;
         }
 
     }
@@ -74,7 +77,7 @@ public class ItemSlotManager : MonoBehaviour
     private void EquipOnOff()
     {
         //タイルを選択している状態で装備ボタンを押したら
-        if (informationText.text == myItemData.GetItemName() + ":" + myItemData.GetInformation() && EquipButton.IsDown() == true)
+        if (informationText.text == InfoText && EquipButton.IsDown() == true)
         {
             //コストがオーバーしなければ
             if (equipManager.GetTotalCost() + myItemData.GetItemCost() <= equipManager.EquipMax)
@@ -91,7 +94,7 @@ public class ItemSlotManager : MonoBehaviour
         }
 
         //タイルを選択している状態で解除ボタンを押したら
-        if (informationText.text == myItemData.GetItemName() + ":" + myItemData.GetInformation() && RemoveButton.IsDown() == true)
+        if (informationText.text == InfoText && RemoveButton.IsDown() == true)
         {
             //装備解除する
             if (myItemData.isEquip == true)

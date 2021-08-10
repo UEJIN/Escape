@@ -5,23 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class ItemEffect_DisableLevel : MonoBehaviour
 {
-    private ItemData itemData;
-    public string DefaultSceneName = "StartScene";
-    private GameObject Parent;
+    //private ItemData itemData;
+    //public string DefaultSceneName = "StartScene";
+    //private GameObject Parent;
     private bool isFinish = false;
 
     [SerializeField]
     private int DisableLevel;
-    private GameObject copy;
 
 
     void Awake()
     {
-        //アイテム情報を取得
-        itemData = GetComponent<ItemData>();
+        ////アイテム情報を取得
+        //itemData = GetComponent<ItemData>();
 
-        //親オブジェクトを記憶
-        Parent = transform.root.gameObject;
+        ////親オブジェクトを記憶
+        //Parent = transform.root.gameObject;
 
     }
 
@@ -39,15 +38,6 @@ public class ItemEffect_DisableLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ////装備状態の確認
-        //if (itemData.GetIsEquip() == true)
-        //{   //装備してたら
-
-        //    //親離れ
-        //    transform.parent = null;
-        //    //シーンまたいでも保持されるようにしておく（rootにあるオブジェクトにしかつかえないので親離れ必要）
-        //    DontDestroyOnLoad(gameObject);
-
             //装備してかつメインシーンなら（装備していないとメインシーンに持っていけない）
             if (SceneManager.GetActiveScene().name == "MainScene" && isFinish == false)
             {
@@ -75,15 +65,6 @@ public class ItemEffect_DisableLevel : MonoBehaviour
                 ////シーンまたいだら破壊されるように戻しておく
                 SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
             }
-
-        //}
-        //else
-        //{   //装備してなかったら
-
-        //    //元の親にもどる
-        //    transform.parent = Parent.transform;
-        //    //Destroy(copy);
-        //}
     }
 
     void OnDisable()

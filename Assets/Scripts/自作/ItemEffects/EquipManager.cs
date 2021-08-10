@@ -14,15 +14,15 @@ public class EquipManager : MonoBehaviour
     public int EquipMax = 5;
     private int TotalCost = 0;
     private int CalcCost = 0;
-    private GameObject[] CopyEquipItem;
-    private bool[] isFinish;
+    private GameObject[] CopyEquipItem;     // 複製したオブジェクト
+    private bool[] isDuplicate;             //複製完了フラグ
 
     //public PlayersItem playersItem;
 
     // Start is called before the first frame update
     void Start()
     {
-        isFinish = new bool[EquipMax];
+        isDuplicate = new bool[EquipMax];
         CopyEquipItem = new GameObject[EquipMax];
     }
 
@@ -32,11 +32,7 @@ public class EquipManager : MonoBehaviour
         SetEquip();
     }
 
-    void OnDisable()
-    {
-
-    }
-
+    //装備アイコンを表示する
     public void SetEquip()
     {
          //装備リストが変更されたら
@@ -49,7 +45,7 @@ public class EquipManager : MonoBehaviour
             for (int i = 0; i < EquipMax; i++)
             {
                 Destroy(CopyEquipItem[i]);
-                isFinish[i] = false;
+                isDuplicate[i] = false;
             }
 
             //装備アイコンを表示する。コストを計算する。   
@@ -72,13 +68,13 @@ public class EquipManager : MonoBehaviour
                     //装備スロットの横に効果を表示する
                     equipSlots[i].transform.GetChild(1).GetComponent<Text>().text = itemEffect;
 
-                    //オブジェクトを複製し、親離れして、非破壊オブジェクトに設定する
-                    if (isFinish[i] == false)
+                    //一度だけオブジェクトを複製し、親離れして、非破壊オブジェクトに設定する
+                    if (isDuplicate[i] == false)
                     {
                         CopyEquipItem[i] = Instantiate(EquipmentList[i]) as GameObject;
                         CopyEquipItem[i].transform.parent = null;
                         DontDestroyOnLoad(CopyEquipItem[i]);
-                        isFinish[i] = true;
+                        isDuplicate[i] = true;
                     }
 
                 }
@@ -86,11 +82,13 @@ public class EquipManager : MonoBehaviour
                 {
                     //装備されていないスロットは画像なしにしておく
                     equipSlots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
-                    
-                    if(CopyEquipItem[i] != null)
+                    //装備スロットの効果を非表示する
+                    equipSlots[i].transform.GetChild(1).GetComponent<Text>().text = "装備なし";
+
+                    if (CopyEquipItem[i] != null)
                     {
                         Destroy(CopyEquipItem[i]);
-                        isFinish[i] = false;
+                        isDuplicate[i] = false;
                     }
 
                 }
