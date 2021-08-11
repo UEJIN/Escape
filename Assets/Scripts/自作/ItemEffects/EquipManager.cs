@@ -14,16 +14,21 @@ public class EquipManager : MonoBehaviour
     public int EquipMax = 5;
     private int TotalCost = 0;
     private int CalcCost = 0;
-    private GameObject[] CopyEquipItem;     // 複製したオブジェクト
-    private bool[] isDuplicate;             //複製完了フラグ
+    private static GameObject[] CopyEquipItem;     // 複製したオブジェクト。非破壊
+    private static bool[] isDuplicate;             //複製完了フラグ
 
     //public PlayersItem playersItem;
 
     // Start is called before the first frame update
     void Start()
     {
-        isDuplicate = new bool[EquipMax];
-        CopyEquipItem = new GameObject[EquipMax];
+        //配列の初期化
+        if (isDuplicate == null)
+        {
+            isDuplicate = new bool[EquipMax];
+            CopyEquipItem = new GameObject[EquipMax];
+        }
+
     }
 
     // Update is called once per frame
@@ -35,11 +40,12 @@ public class EquipManager : MonoBehaviour
     //装備アイコンを表示する
     public void SetEquip()
     {
-         //装備リストが変更されたら
-        if (EquipmentList != PlayersItem.EquipmentList)
+       
+        //装備リストを初期化していない、または装備リストが変更されたら
+        if (EquipmentList == null || EquipmentList.Length != PlayersItem.EquipmentList.ToArray().Length)
         {
             //装備リストを更新する
-            EquipmentList = PlayersItem.EquipmentList;
+            EquipmentList = PlayersItem.EquipmentList.ToArray();
 
             //非破壊に移動した装備をリセットする
             for (int i = 0; i < EquipMax; i++)
@@ -52,8 +58,8 @@ public class EquipManager : MonoBehaviour
             CalcCost = 0;
             for (int i = 0; i < EquipMax; i++)
             {
-
-                if (EquipmentList[i] != null)
+                 //存在する配列の数を超えたら終了
+                if (EquipmentList.Length > i && EquipmentList[i] != null)
                 {
                     //アイコン取得
                     icon = EquipmentList[i].GetComponent<ItemData>().GetIcon();

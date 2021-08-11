@@ -7,12 +7,17 @@ public class LifeReset : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LifeManager.LifeNum = LifeManager.IniLife;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    void OnDisable()
+    {
+        LifeManager.LifeNum = LifeManager.IniLife;
     }
 }

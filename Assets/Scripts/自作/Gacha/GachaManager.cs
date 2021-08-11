@@ -8,6 +8,9 @@ public class GachaManager : MonoBehaviour
     //ガチャポイント
     public static int GachaPoint;
 
+    //デバッグ用ガチャポイント
+    public int DebugGachaPoint = 10000;
+
     //ガチャ消費ポイント
     public int GachaCost = 10;
 
@@ -50,7 +53,7 @@ public class GachaManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GachaPoint = 10000;
+        //GachaPoint += DebugGachaPoint;
     }
 
     // Update is called once per frame
@@ -58,7 +61,7 @@ public class GachaManager : MonoBehaviour
     {
 
         GachaPointText.text = "消費ポイント : "+ GachaCost.ToString() + "/" + GachaPoint.ToString();
-        Debug.Log("gachapoint:"+GachaPoint);
+        //Debug.Log("gachapoint:"+GachaPoint);
         
         //ガチャボタンが押されたら
         if (GachaButtonState.IsDown())

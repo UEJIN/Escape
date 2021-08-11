@@ -50,7 +50,7 @@ public class ItemEffect_DisableLevel : MonoBehaviour
                 }
             }
 
-            //装備してかつなら（装備していないとメインシーンに持っていけない）
+            //装備してかつメインシーンでなければ
             if (SceneManager.GetActiveScene().name != "MainScene" && isFinish == true)
             {
                 //次のステージで再起動させる
@@ -62,8 +62,8 @@ public class ItemEffect_DisableLevel : MonoBehaviour
             {
                 //もとに戻す
 
-                ////シーンまたいだら破壊されるように戻しておく
-                SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
+                //////シーンまたいだら破壊されるように戻しておく
+                //SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
             }
     }
 

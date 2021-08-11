@@ -71,8 +71,8 @@ public class ItemEffect_RandomGimmick : MonoBehaviour
 
             if (LifeManager.LifeNum == 0)
             {
-                ////シーンまたいだら破壊されるように戻しておく
-                SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
+                //////シーンまたいだら破壊されるように戻しておく
+                //SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
             }
         //}
         //else

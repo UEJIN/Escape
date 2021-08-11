@@ -72,8 +72,8 @@ public class ItemEffect_GameSpeedFix : MonoBehaviour
             {
                 //もとに戻す
                 Time.timeScale = 1f;
-                ////シーンまたいだら破壊されるように戻しておく
-                SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
+                //////シーンまたいだら破壊されるように戻しておく
+                //SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByName("MainScene"));
             }
            
         //}

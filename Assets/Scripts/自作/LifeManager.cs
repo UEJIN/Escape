@@ -6,9 +6,9 @@ using NaughtyAttributes;
 // 挟まれると、表示する
 public class LifeManager : MonoBehaviour {
 	[ShowNonSerializedField]
-	public static int LifeNum = 1;   // ライフカウンター、数字はデバッグ用の初期値
+	public static int LifeNum = 1;   // ライフカウンター、ここの初期値はデバッグ用の初期値
 	[ShowNonSerializedField]
-	public static int IniLife = 3;
+	public static int IniLife = 3;	//タイトル画面でこの値にリセットされる
 	public string groundTag = "ground";  // 地面判定タグ：Inspectorで指定
 	public string ceilingTag = "ceiling";       // 天井判定タグ：Inspectorで指定
 	bool groundFlag = false;

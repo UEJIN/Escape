@@ -33,22 +33,36 @@ public class SaveLoadManager : MonoBehaviour
 
     void Awake()
     {
-        //jsonデータのロード/////////////////////////////////////////////////////////////
-    
-        //保存場所の設定　エディターで起動したときはアセットフォルダ直下に保存場所を変える
-        #if UNITY_EDITOR
+        //ダブったら削除
+        int n = FindObjectsOfType<SaveLoadManager>().Length;
+        if (n > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+
+            //非破壊オブジェクトにしておく
+            DontDestroyOnLoad(gameObject);
+
+
+            //jsonデータのロード/////////////////////////////////////////////////////////////
+
+            //保存場所の設定　エディターで起動したときはアセットフォルダ直下に保存場所を変える
+#if UNITY_EDITOR
             filePath = Application.dataPath + "/savedata.json";
-        #else
+#else
             filePath = Application.persistentDataPath + "/" + ".savedata.json";
-        #endif
+#endif
 
-        Debug.Log("JsonFilePass : " + filePath);
+            Debug.Log("JsonFilePass : " + filePath);
 
-        //セーブデータを受け取るインスタンス
-        saveData = new SaveData();
+            //セーブデータを受け取るインスタンス
+            saveData = new SaveData();
 
-        //セーブデータjsonのロード
-        Load();
+            //セーブデータjsonのロード
+            Load();
+        }
     }
 
     void Start()
@@ -96,17 +110,15 @@ public class SaveLoadManager : MonoBehaviour
         saveData.isPossession = new bool[PlayersItem.ItemList.Length];
         saveData.isEquip = new bool[PlayersItem.ItemList.Length];
 
-        //アイテムの所持。装備フラグを代入
-        for (int i = 0; i < PlayersItem.ItemList.Length; i++)
-        {
-            saveData.isPossession[i] = PlayersItem.ItemList[i].GetComponent<ItemData>().isPossession;
-            saveData.isEquip[i] = PlayersItem.ItemList[i].GetComponent<ItemData>().isEquip;
-        }
+        saveData.isPossession = PlayersItem.isPossession;
+        saveData.isEquip = PlayersItem.isEquip;
+
+
 
         //音量を代入
         //saveData.Volume = AudioListener.volume;
 
-    　//json形式にしてデータを保存///////////////////////////////////////////////////////
+        //json形式にしてデータを保存///////////////////////////////////////////////////////
 
         Save();
     }
