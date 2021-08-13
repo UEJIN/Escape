@@ -32,11 +32,11 @@ public class ChangeColor : MonoBehaviour
     }
     void Start() //èâä˙íl
     {
-        for (n = 0; n < CeilingOrder.Length; n++)
-        {
-            CeilingOrder[n].GetComponent<Renderer>().material.color = CeilingStartColor;
-            GroundOrder[n].GetComponent<Renderer>().material.color = GroundStartColor;
-        }
+        //for (n = 0; n < CeilingOrder.Length; n++)
+        //{
+        //    CeilingOrder[n].GetComponent<Renderer>().material.color = CeilingStartColor;
+        //    GroundOrder[n].GetComponent<Renderer>().material.color = GroundStartColor;
+        //}
     }
 
     // Update is called once per frame

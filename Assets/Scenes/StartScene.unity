@@ -6953,7 +6953,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'POINT : 0'
+  m_Text: 'GachaPOINT : 0'
 --- !u!222 &512808977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7712,7 +7712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -238, y: -193.99364}
+  m_AnchoredPosition: {x: -152.2241, y: -197.32695}
   m_SizeDelta: {x: 475.99, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &577791287
@@ -8102,8 +8102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a48e24ca2273f42b9cdcd8d1641b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PossessionList: []
   TempPossessionList: []
+  TempEquipmentList: []
 --- !u!1 &603959388
 GameObject:
   m_ObjectHideFlags: 0
@@ -18639,7 +18639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -326.38937, y: -204.04662}
+  m_AnchoredPosition: {x: -296.46826, y: -202.07475}
   m_SizeDelta: {x: 47.6999, y: 13.50394}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326844675
@@ -18824,6 +18824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780982e0531a3ec42b5634aa408cfb96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugGachaPoint: 10000
   GachaCost: 10
   GachaPointText: {fileID: 577791287}
   SSRratio: 2
@@ -21019,7 +21020,7 @@ MonoBehaviour:
   information: "\u8B0E\u306E\u529B\u3067\u30B9\u30C6\u30FC\u30B8\u304C\u5909\u5316\u3059\u308B\u3002"
   itemEffect: "\u30B9\u30C6\u30FC\u30B8\u306E\u30AE\u30DF\u30C3\u30AF\u304C\u6700\u521D\u304B\u3089\u30E9\u30F3\u30C0\u30E0\u306B\u306A\u308B\u3002"
   itemCost: 1
-  isPossession: 1
+  isPossession: 0
   isEquip: 0
 --- !u!1001 &1573013097
 PrefabInstance:
@@ -21462,6 +21463,7 @@ GameObject:
   - component: {fileID: 1580699528}
   - component: {fileID: 1580699527}
   - component: {fileID: 1580699526}
+  - component: {fileID: 1580699525}
   m_Layer: 5
   m_Name: Panel_Status
   m_TagString: Untagged
@@ -21495,6 +21497,25 @@ RectTransform:
   m_AnchoredPosition: {x: 131.84506, y: 82.796844}
   m_SizeDelta: {x: 756.31, y: 321.8983}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1580699525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580699523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141422cd6380a0f489cdf9aa3d0409dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textLife: {fileID: 264308171}
+  textAttack: {fileID: 1292641884}
+  textDefence: {fileID: 306102293}
+  textSpeed: {fileID: 2014511284}
+  textEyeSight: {fileID: 384991218}
+  testGachaPoint: {fileID: 512808976}
+  testPossesionItemNum: {fileID: 1538773093}
 --- !u!114 &1580699526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25821,7 +25842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2064906834
 RectTransform:
   m_ObjectHideFlags: 0

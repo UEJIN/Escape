@@ -53,7 +53,13 @@ public class GachaManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GachaPoint += DebugGachaPoint;
+        //エディターならポイント追加
+
+#if UNITY_EDITOR
+            GachaPoint = DebugGachaPoint;
+#endif
+
+
     }
 
     // Update is called once per frame

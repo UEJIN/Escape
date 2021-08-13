@@ -52,7 +52,7 @@ public class SaveLoadManager : MonoBehaviour
 #if UNITY_EDITOR
             filePath = Application.dataPath + "/savedata.json";
 #else
-            filePath = Application.persistentDataPath + "/" + ".savedata.json";
+            filePath = Application.persistentDataPath + "/savedata.json";
 #endif
 
             Debug.Log("JsonFilePass : " + filePath);
@@ -68,36 +68,55 @@ public class SaveLoadManager : MonoBehaviour
     void Start()
     {
         //ロードしたデータの反映////////////////////////////////////////////////////
-
-        //ガチャポイントを反映
-        GachaManager.GachaPoint = saveData.GachaPoint;
-
-        //前回の音量を反映
-        AudioListener.volume = saveData.Volume;
-
-        //アイテムの所持・装備フラグを反映
-        for (int i = 0; i < PlayersItem.ItemList.Length; i++)
-        {
-            PlayersItem.ItemList[i].GetComponent<ItemData>().isPossession = saveData.isPossession[i];
-            PlayersItem.ItemList[i].GetComponent<ItemData>().isEquip = saveData.isEquip[i];
-        }
-
+        SaveDataApply();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         //音量を代入
-        saveData.Volume = AudioListener.volume; //なぜか終了時に1になってしまうのでここで取得
+        saveData.Volume = AudioListener.volume; //なぜか終了時だと1になってしまうのでここで取得
+    }
+
+    
+    private void OnApplicationQuit()  //アプリケーション終了時(androidで、タスクビュー画面から終了すると呼ばれない)
+    {
+        //セーブしたいデータのピックアップ/////////////////////////////////////////////////
+
+        SaveDataSet();
+
+        //json形式にしてデータを保存///////////////////////////////////////////////////////
+
+        Save();
     }
 
 
-
-    //アプリケーション終了時
-    private void OnApplicationQuit()
+    private void OnApplicationPause(bool pauseStatus)    //アプリケーションポーズ時(タスクビューから終了したとき対策)
     {
-     //セーブしたいデータのピックアップ/////////////////////////////////////////////////
+        if (pauseStatus)//ポーズtrue時
+        {
+            //DebugLog("<color=red>バックグラウンド行った</color>");
+
+            //セーブしたいデータのピックアップ/////////////////////////////////////////////////
+
+            SaveDataSet();
+
+            //json形式にしてデータを保存///////////////////////////////////////////////////////
+
+            Save();
+
+        }
+        else//ポーズでないとき
+        {
+            //Debug.Log("<color=red>復帰した</color>");
+        }
+    }
+
+    public void SaveDataSet() //セーブしたいデータのピックアップ/////////////////////////////////////////////////
+    {
         
+
         //テスト用
         saveData.Life = 100;
         saveData.Attack = 20;
@@ -113,18 +132,29 @@ public class SaveLoadManager : MonoBehaviour
         saveData.isPossession = PlayersItem.isPossession;
         saveData.isEquip = PlayersItem.isEquip;
 
-
-
-        //音量を代入
+        //音量を代入(何故かここではうまく機能しない)
         //saveData.Volume = AudioListener.volume;
 
-        //json形式にしてデータを保存///////////////////////////////////////////////////////
-
-        Save();
     }
 
-    //SaveDataインスタンスをjsonにして保存
-    public void Save()
+    public void SaveDataApply() //ロードしたデータの反映////////////////////////////////////////////////////
+    {
+        //ガチャポイントを反映
+        GachaManager.GachaPoint = saveData.GachaPoint;
+
+        //前回の音量を反映
+        AudioListener.volume = saveData.Volume;
+
+        //アイテムの所持・装備フラグを反映
+        for (int i = 0; i < PlayersItem.ItemList.Length; i++)
+        {
+            PlayersItem.ItemList[i].GetComponent<ItemData>().isPossession = saveData.isPossession[i];
+            PlayersItem.ItemList[i].GetComponent<ItemData>().isEquip = saveData.isEquip[i];
+        }
+    }
+
+    
+    public void Save()  //SaveDataインスタンスをjsonにして保存
     {
         string jsonstr = JsonUtility.ToJson(saveData);
 
@@ -135,8 +165,8 @@ public class SaveLoadManager : MonoBehaviour
         Debug.Log("Save");
     }
 
-    //jsonをSaveDataインスタンスにロード
-    public void Load()
+    
+    public void Load()  //jsonをSaveDataインスタンスにロード
     {
         if (File.Exists(filePath))
         {

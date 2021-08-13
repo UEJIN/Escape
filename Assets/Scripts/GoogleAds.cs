@@ -69,7 +69,7 @@ public class GoogleAds : MonoBehaviour
                 OffFlag = true;
                 break;
             }
-            else 
+            else
             {
                 OffFlag = false;
             }
