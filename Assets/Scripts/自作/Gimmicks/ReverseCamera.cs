@@ -11,10 +11,19 @@ public class ReverseCamera : MonoBehaviour
 
     void Start()
     {
+        Invoke("ReverseDisplay", 0.2f);
+        //Camera.main.projectionMatrix = Camera.main.projectionMatrix * Matrix4x4.Scale(scale);
+        //text1.transform.Rotate(TextRotation);
+        //text2.transform.Rotate(TextRotation);
+    }
+
+    private void ReverseDisplay()
+    {
         Camera.main.projectionMatrix = Camera.main.projectionMatrix * Matrix4x4.Scale(scale);
         text1.transform.Rotate(TextRotation);
         text2.transform.Rotate(TextRotation);
     }
+
 
     void OnPreCull()
     {
@@ -36,9 +45,10 @@ public class ReverseCamera : MonoBehaviour
         GL.invertCulling = false;
     }
 
-    void OnDisEnable()
+    void OnDisable()
     {
-
+        TextRotation = new Vector3(0, 0, 0);
+        scale =  new Vector3(1, 1, 1);
     }
 
 }

@@ -18129,7 +18129,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -24245,6 +24245,7 @@ GameObject:
   - component: {fileID: 1876361984}
   - component: {fileID: 1876361983}
   - component: {fileID: 1876361982}
+  - component: {fileID: 1876361986}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -24338,6 +24339,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1876361986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876361981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b929933d3c5ea34db63af9730f709be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipSlots:
+  - {fileID: 205896489}
+  - {fileID: 1270563787}
+  - {fileID: 1802438256}
+  - {fileID: 480504237}
+  - {fileID: 1414211293}
+  CostText: {fileID: 2124967620}
+  EquipMax: 5
 --- !u!1 &1883654165
 GameObject:
   m_ObjectHideFlags: 0
