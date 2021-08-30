@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class OnLifeZero_GetGachaPoint : MonoBehaviour 
 {
 	public GameObject showObject;   // 表示オブジェクト名：Inspectorで指定
+	public GameObject showObject2;
 	public float DelayTime = 0.5f;
 	public int GetPoint;
 	bool isFinish;
 
     void Start() 
 	{
-		showObject.SetActive(false); // 消す
+
 	}
 
 	void Update()
@@ -23,7 +24,6 @@ public class OnLifeZero_GetGachaPoint : MonoBehaviour
 			isFinish = true;
 			GetPoint = StageCounter.value * DifficultyManager.Difficulty;
 			GachaManager.GachaPoint += GetPoint;
-			Debug.Log("GetPoint:" + GetPoint);
 			Invoke("ShowwObject", DelayTime);//秒後に呼び出す
 
 		}
@@ -32,8 +32,9 @@ public class OnLifeZero_GetGachaPoint : MonoBehaviour
 
 	void ShowwObject()
 	{
-		showObject.SetActive(true); // 消していたものを表示する
+
 		showObject.GetComponent<Text>().text = "Gacha Point + " + GetPoint;
+		showObject2.GetComponent<Text>().text = "Gacha Point + " + GetPoint;
 
 
 	}
