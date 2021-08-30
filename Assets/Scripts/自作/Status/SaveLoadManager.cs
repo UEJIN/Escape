@@ -15,7 +15,7 @@ public class SaveData
     public int Defense;
     public int GachaPoint;
 
-    public float Volume;
+    public float Volume = 1f;
 
     //アイテム関連
     public bool[] isPossession;
