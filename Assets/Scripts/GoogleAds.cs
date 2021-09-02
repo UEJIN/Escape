@@ -32,7 +32,9 @@ public class GoogleAds : MonoBehaviour
         MobileAds.Initialize(initStatus => { });
 
         RequestBanner();
+        //DontDestroyOnLoad(this);
     }
+
     private void RequestBanner()
     {
 
@@ -61,10 +63,12 @@ public class GoogleAds : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log("OffFlag" + OffFlag);
+
         //特定のキャンバスが有効ならオフにする
         for (int i = 0; i < AdOffObjects.Length; i++)
         {
-            if (AdOffObjects[i].activeSelf)
+            if (AdOffObjects[i] != null && AdOffObjects[i].activeSelf)
             {
                 OffFlag = true;
                 break;

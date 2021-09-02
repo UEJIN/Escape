@@ -11,7 +11,7 @@ public class ReverseCamera : MonoBehaviour
 
     void Start()
     {
-        Invoke("ReverseDisplay", 0.2f);
+        Invoke("ReverseDisplay", 0f);
         //Camera.main.projectionMatrix = Camera.main.projectionMatrix * Matrix4x4.Scale(scale);
         //text1.transform.Rotate(TextRotation);
         //text2.transform.Rotate(TextRotation);
